@@ -53,3 +53,22 @@ document.querySelector(".check-btn").addEventListener("click", () => {
     document.querySelector(".score").textContent = score;
   }
 });
+
+//* again basildiginda oyunu baslangic dgerlerin kur
+document.querySelector(".again-btn").addEventListener("click", () => {
+  score = 10;
+  document.querySelector(".score").textContent = score;
+  randomNumber = Math.round(Math.random() * 100);
+  document.querySelector(".secret-number").textContent = "?";
+  console.log(randomNumber);
+  document.querySelector(".check-btn").disabled = false;
+  document.querySelector("body").classList.remove("bg-success", "bg-danger");
+  document.querySelector(".guess-input").value = "";
+  document.querySelector(".msg").innerText = `Starting..`;
+});
+
+document.querySelector(".guess-input").addEventListener("keydown", (e) => {
+  if (e.code === "Enter") {
+    document.querySelector(".check-btn").click();
+  }
+});
